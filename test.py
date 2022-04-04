@@ -13,15 +13,22 @@ f = open('deviation.json')
 # a dictionary
 data = json.load(f)
 
-for i in data['deviation']:
-    print(i)
+# for i in data['deviation']:
+#     print(i)
  
 # Closing file
 f.close()
 
 
-model = models.load_model("kneeRight.h5")
+kneeRight = models.load_model("kneeRight.h5")
 
-result = model.predict([data['deviation']])
+
+result = kneeRight.predict([data['deviation']])
+
+print(result);
+
+
+jawRight = models.load_model("jawRight.h5")
+result = jawRight.predict([data['deviation']])
 
 print(result);
